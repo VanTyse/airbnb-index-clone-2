@@ -8,13 +8,14 @@ import { ItemsContext } from "@/context/ItemsContext";
 import { ItemType } from "@/lib/types";
 import Footer from "@/components/Footer/Footer";
 import MobileStickyNavbar from "@/components/MobileStickyNavbar/MobileStickyNavbar";
+import { items as homeItems } from "@/lib/mockData";
 
 function App() {
   const [currentHeaderHeight, setCurrentHeaderHeight] = useState(44);
   const { dispatch: itemsDispatch } = useContext(ItemsContext);
 
   const fetchItems = async () => {
-    const items = [] as ItemType[];
+    const items = [...homeItems] as ItemType[];
 
     if (items)
       itemsDispatch && itemsDispatch({ type: "update", payload: items });
