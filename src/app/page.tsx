@@ -6,7 +6,6 @@ import Header from "@/components/Header/Header";
 import AmazingSpaces from "@/components/Items/AmazingSpaces";
 import { ItemsContext } from "@/context/ItemsContext";
 import { ItemType } from "@/lib/types";
-import fetchJSON from "@/lib/utils/fetchJSON";
 import Footer from "@/components/Footer/Footer";
 import MobileStickyNavbar from "@/components/MobileStickyNavbar/MobileStickyNavbar";
 
@@ -15,7 +14,7 @@ function App() {
   const { dispatch: itemsDispatch } = useContext(ItemsContext);
 
   const fetchItems = async () => {
-    const items = (await fetchJSON("/MOCK_DATA.json")) as ItemType[];
+    const items = [] as ItemType[];
 
     if (items)
       itemsDispatch && itemsDispatch({ type: "update", payload: items });
